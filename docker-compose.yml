@@ -6,12 +6,12 @@ services:
     restart: unless-stopped
   
   client:
+    depends_on:
+      - server
     build: client
     ports:
       - "80:80"
     restart: unless-stopped
-    depends_on:
-      - server
 
   prometheus:
     image: prom/prometheus:latest
