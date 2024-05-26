@@ -1,0 +1,22 @@
+services:
+  server:
+    build: server
+    ports:
+      - "8080:8080"
+    restart: unless-stopped
+  
+  client:
+    build: client
+    ports:
+      - "80:80"
+    restart: unless-stopped
+    depends_on:
+      - server
+
+  prometheus:
+    image: prom/prometheus:latest
+    volumes:
+      - ./prometheus/prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    restart: unless-stopped
