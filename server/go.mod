@@ -1,4 +1,4 @@
-module github.com/bazmurphy/go-prometheus-test/app
+module github.com/bazmurphy/go-prometheus-test/server
 
 go 1.22.0
 
